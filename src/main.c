@@ -1,7 +1,7 @@
 
 #include <xcc/xcc.h>
 
-static FILE* input_file_stream = NULL;
+FILE* current_file = NULL;
 
 int main(int argc, char *argv[])
 {
@@ -11,16 +11,19 @@ int main(int argc, char *argv[])
     }
 
     while (*++argv) {
-        input_file_stream = fopen(*argv, "r");
+        current_file = fopen(*argv, "r");
 
-        if (input_file_stream == NULL) {
+        if (current_file == NULL) {
             fprintf(stderr, "[Error] Failed to open file: %s\n", *argv);
             continue;
         }
 
-        printf("%d\n", lex(input_file_stream));
+        //statements();
 
-        fclose(input_file_stream);
+        printf("Compiling file: %s\n", *argv);
+        translation_unit();
+
+        fclose(current_file);
     }
 
     return EXIT_SUCCESS;

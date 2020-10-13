@@ -20,6 +20,9 @@ typedef enum {
     TRUE  = !FALSE
 } bool_t;
 
-#include <xcc/lex.h>
+#include <xcc/lexer.h>
+#include <xcc/parser.h>
+
+extern FILE* current_file;
 
 #endif /** PROJECT_INCLUDES_XCC_H */

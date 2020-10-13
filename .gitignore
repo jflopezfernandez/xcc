@@ -60,5 +60,8 @@ Makefile
 # Executables
 src/xcc
 
+# Debugging Data
+/debug/
+
 # Personal Scripts
 configure-package
